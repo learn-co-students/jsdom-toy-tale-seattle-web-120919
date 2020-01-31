@@ -67,7 +67,8 @@ function makeToyCard(toy) {
   likeBtn.className = "like-btn"
   likeBtn.textContent = "Like <3"
   likeBtn.addEventListener("click", function () {
-    likes.textContent = `${++toy.likes} Likes`
+    patchLikes(toy)
+    likes.textContent = `${toy.likes} Likes`
   })
 
 
@@ -108,7 +109,7 @@ function patchLikes(toy) {
       Accept: "application/json"
     },
     body: JSON.stringify({
-      "likes": toy.likes++
+      "likes": ++toy.likes
     })
   })
 } 
